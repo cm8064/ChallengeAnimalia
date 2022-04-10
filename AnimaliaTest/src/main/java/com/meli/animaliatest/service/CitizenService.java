@@ -94,8 +94,16 @@ public class CitizenService {
 
 		try {
 			Rpta.Code = 200;
-			Rpta.Message = "Citizen actualizado exitosamente!";
-
+			Optional<CitizenModel> CitizenSearch = CitizenRepository.findById(citizen.getCitizenId());
+			if(CitizenSearch.isPresent())
+			{
+				CitizenRepository.save(citizen);
+				Rpta.Message = "Citizen actualizado exitosamente!";
+			}
+			else
+			{
+				Rpta.Message = "Citizen no encontrado";
+			}
 			Rpta.Status = "ok";
 		} catch (Exception Ex) {
 			Rpta.Code = 500;
