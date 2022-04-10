@@ -11,8 +11,11 @@
 	<groupId>com.meli.animaliatest</groupId>
 	<artifactId>AnimaliaTest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	
 	<name>AnimaliaTest</name>
 	<description>Api Rest de prueba para Meli</description>
+	<packaging>jar</packaging>
+	
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
