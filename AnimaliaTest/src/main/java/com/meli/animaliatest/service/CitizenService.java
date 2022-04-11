@@ -133,6 +133,24 @@ public class CitizenService {
 		return Rpta;
 	}
 
+	public ResponseBaseModel CreateMultiple(List<CitizenModel> ListCitizen)
+	{
+		CleanRpta();
+
+		try {
+			Rpta.Code = 200;
+			CitizenRepository.saveAll(ListCitizen);
+				Rpta.Message = "Lista de Citizens procesados con exito!";
+			Rpta.Status = "ok";
+		} catch (Exception Ex) {
+			Rpta.Code = 500;
+			Rpta.Message = Ex.getMessage() + " " + Ex.getCause() + " " + Ex.getStackTrace();
+			Rpta.Status = "ex";
+		}
+
+		return Rpta;
+	}
+	
 	private void CleanRpta() {
 		try {
 			Rpta.Code = 0;

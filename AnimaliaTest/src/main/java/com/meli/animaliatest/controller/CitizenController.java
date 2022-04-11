@@ -1,5 +1,7 @@
 package com.meli.animaliatest.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,6 +37,11 @@ public class CitizenController {
 	@PostMapping("/Create")
 	public ResponseBaseModel Create(@RequestBody CitizenModel Citizen){
 		return service.Create(Citizen);
+	}
+	
+	@PostMapping("/CreateMultiple")
+	public ResponseBaseModel CreateMultiple(@RequestBody List<CitizenModel> ListCitizen){
+		return service.CreateMultiple(ListCitizen);
 	}
 	
 	@PutMapping("/Update")
